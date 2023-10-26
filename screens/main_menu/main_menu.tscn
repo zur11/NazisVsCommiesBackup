@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cflg2ypu25js2"]
+
+[ext_resource type="Script" path="res://screens/main_menu/main_menu.gd" id="1_tf8ke"]
+[ext_resource type="Texture2D" uid="uid://dwh802vf3lngr" path="res://screens/main_menu/assets/main_menu_background.png" id="2_3alm3"]
+[ext_resource type="Texture2D" uid="uid://c4hw3xrpbqucb" path="res://screens/main_menu/assets/start_1.png" id="3_hstnn"]
+[ext_resource type="Texture2D" uid="uid://bmsutva5u4e5h" path="res://screens/main_menu/assets/start_2.png" id="4_vammy"]
+[ext_resource type="Texture2D" uid="uid://3wpfovc8kdgh" path="res://screens/main_menu/assets/settings_1.png" id="5_ra82b"]
+[ext_resource type="Texture2D" uid="uid://nkdlkhmsxdka" path="res://screens/main_menu/assets/settings_2.png" id="6_a3eqk"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="7_5jsu4"]
+[ext_resource type="AudioStream" uid="uid://c23u63gja3ttj" path="res://assets/audio/sfx/buttons_sfx/click_1.mp3" id="7_c1rv0"]
+[ext_resource type="PackedScene" uid="uid://swqcdk8cggeg" path="res://screens/main_menu/user_stats_container/user_stats_container.tscn" id="9_3k1xs"]
+
+[node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_tf8ke")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_3alm3")
+
+[node name="GoToGamesMenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 549.0
+offset_right = 796.0
+offset_bottom = 712.0
+texture_normal = ExtResource("3_hstnn")
+texture_pressed = ExtResource("4_vammy")
+texture_hover = ExtResource("4_vammy")
+
+[node name="GoToSettingsMenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 908.0
+offset_top = 652.0
+offset_right = 1325.0
+offset_bottom = 820.0
+texture_normal = ExtResource("5_ra82b")
+texture_pressed = ExtResource("6_a3eqk")
+texture_hover = ExtResource("6_a3eqk")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_c1rv0")
+script = ExtResource("7_5jsu4")
+
+[node name="UserStatsContainer" parent="." instance=ExtResource("9_3k1xs")]
+
+[connection signal="pressed" from="GoToGamesMenuButton" to="." method="_on_go_to_games_menu_button_pressed"]
+[connection signal="pressed" from="GoToSettingsMenuButton" to="." method="_on_go_to_settings_menu_button_pressed"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhwskv3wddlt5"]
+
+[ext_resource type="Script" path="res://screens/game_screen/allies_selector_popup/allies_selector_popup.gd" id="1_cqako"]
+[ext_resource type="Texture2D" uid="uid://0dxx7xcbc531" path="res://screens/game_screen/allies_selector_popup/assets/box_background.png" id="1_yc03w"]
+[ext_resource type="Texture2D" uid="uid://bfhyaegdim440" path="res://screens/game_screen/allies_selector_popup/assets/ready_button.png" id="4_4bxl3"]
+[ext_resource type="Texture2D" uid="uid://c4jsg4t13xr4k" path="res://screens/game_screen/allies_selector_popup/assets/ready_button_pressed.png" id="5_gobgl"]
+[ext_resource type="Texture2D" uid="uid://cfp6p7bwwfeng" path="res://screens/game_screen/allies_selector_popup/assets/box_border_old.png" id="8_wjdv5"]
+[ext_resource type="Texture2D" uid="uid://r43anc73j5m1" path="res://screens/game_screen/allies_selector_popup/assets/text_choose_your_allies.png" id="8_ylfav"]
+[ext_resource type="PackedScene" uid="uid://brxq4nw6qqsqj" path="res://screens/game_screen/allies_selector_popup/allies_selector_scroll_container/allies_selector_scroll_container.tscn" id="9_fqgbe"]
+[ext_resource type="PackedScene" uid="uid://bs84ed7ckgfyd" path="res://screens/game_screen/ally_card_slots/ally_card_slots.tscn" id="9_ot4rg"]
+[ext_resource type="Texture2D" uid="uid://cb5tftyl1suss" path="res://screens/game_screen/ally_card_slots/assets/ally_slot.png" id="10_lt5xc"]
+[ext_resource type="AudioStream" uid="uid://dm6j54m13kjy4" path="res://screens/game_screen/allies_selector_popup/assets/sfx/select_ally_in_popup.mp3" id="10_xo0af"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="11_e02dx"]
+[ext_resource type="AudioStream" uid="uid://djx2vlmr8oegg" path="res://assets/audio/sfx/game_screen_popups/generic_button_pressed_sfx.mp3" id="12_sgafk"]
+
+[node name="AlliesSelectorPopup" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 0.648
+anchor_bottom = 0.978
+offset_right = 0.839966
+offset_bottom = -0.23999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cqako")
+
+[node name="ChooseAlliesPrompt" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_right = 1076.0
+offset_bottom = 219.0
+texture = ExtResource("8_ylfav")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 565)
+layout_mode = 0
+offset_left = 237.0
+offset_top = 200.0
+offset_right = 1214.0
+offset_bottom = 823.0
+texture = ExtResource("1_yc03w")
+
+[node name="AllyCardSlots" parent="." instance=ExtResource("9_ot4rg")]
+layout_mode = 0
+offset_top = 155.0
+offset_bottom = 155.0
+ally_slot_texture = ExtResource("10_lt5xc")
+
+[node name="StartGameButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 923.0
+offset_right = 921.0
+offset_bottom = 1059.0
+texture_normal = ExtResource("4_4bxl3")
+texture_pressed = ExtResource("5_gobgl")
+
+[node name="BoxBordersTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 1244.0
+offset_bottom = 927.0
+texture = ExtResource("8_wjdv5")
+
+[node name="AlliesSelectorScrollContainer" parent="." instance=ExtResource("9_fqgbe")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 259.0
+offset_right = 1193.0
+offset_bottom = 872.0
+
+[node name="VerticalSpacer" parent="AlliesSelectorScrollContainer/ScrollVContainer" index="0"]
+custom_minimum_size = Vector2(0, 95)
+
+[node name="HorizontalSpacer" parent="AlliesSelectorScrollContainer/ScrollVContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(49, 0)
+
+[node name="HorizontalSpacer2" parent="AlliesSelectorScrollContainer/ScrollVContainer/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(82, 0)
+
+[node name="CardPressedSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xo0af")
+script = ExtResource("11_e02dx")
+
+[node name="GenericBtnPressedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_sgafk")
+script = ExtResource("11_e02dx")
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+
+[editable path="AlliesSelectorScrollContainer"]
+[editable path="AlliesSelectorScrollContainer/ScrollVContainer/HBoxContainer/ChoosableCardsGrid"]

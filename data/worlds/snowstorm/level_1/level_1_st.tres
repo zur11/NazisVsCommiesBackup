@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="LevelSnowstorm" load_steps=19 format=3 uid="uid://b75q6gpynast7"]
+
+[ext_resource type="Script" path="res://data/ally_presentation/ally_presentation.gd" id="1_jxf0g"]
+[ext_resource type="Script" path="res://data/worlds/snowstorm/level_snowstorm.gd" id="1_qaln4"]
+[ext_resource type="Script" path="res://data/min_max_int_rate/min_max_int_rate.gd" id="2_u5se0"]
+[ext_resource type="Texture2D" uid="uid://ojvwjc8twsok" path="res://data/worlds/snowstorm/level_1/enemy_thumbnail_standard.png" id="3_buof7"]
+[ext_resource type="Script" path="res://data/enemy_quantity/enemy_quantity.gd" id="4_ahtqo"]
+[ext_resource type="Texture2D" uid="uid://d1ipsi7nb2i2" path="res://data/worlds/snowstorm/level_1/tutorial_background_1row.png" id="4_etgn8"]
+[ext_resource type="Script" path="res://data/enemy_wave/enemy_wave.gd" id="5_7kc2b"]
+[ext_resource type="Texture2D" uid="uid://ccyyoqdxxsu26" path="res://data/worlds/snowstorm/salingrad_1_foreground.png" id="5_nq84p"]
+[ext_resource type="PackedScene" uid="uid://cls10jllpda83" path="res://game_objects/allies/shooter_ally/bayonet_soldier/bayonet_soldier.tscn" id="5_sgboh"]
+[ext_resource type="Texture2D" uid="uid://dmj4whxksfy2u" path="res://data/worlds/snowstorm/level_thumbnail.png" id="8_kgqbh"]
+
+[sub_resource type="Resource" id="Resource_87ep0"]
+script = ExtResource("1_jxf0g")
+ally_thumbnail = "matrioshka"
+ally_title = "MATRIOSHKA"
+ally_reward_description = "Matrioshka offers ruble coin every few seconds."
+
+[sub_resource type="Resource" id="Resource_v82nr"]
+script = ExtResource("2_u5se0")
+minimum_value = 7
+maximum_value = 10
+
+[sub_resource type="Resource" id="Resource_srmns"]
+script = ExtResource("4_ahtqo")
+quantity = 3
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_y76fq"]
+script = ExtResource("5_7kc2b")
+is_flagged = false
+minimum_spawning_rate = 13.0
+maximum_spawning_rate = 15.0
+enemies = Array[ExtResource("4_ahtqo")]([SubResource("Resource_srmns")])
+
+[sub_resource type="Resource" id="Resource_spibj"]
+script = ExtResource("4_ahtqo")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_yue4t"]
+script = ExtResource("5_7kc2b")
+is_flagged = false
+minimum_spawning_rate = 9.0
+maximum_spawning_rate = 10.0
+enemies = Array[ExtResource("4_ahtqo")]([SubResource("Resource_spibj")])
+
+[sub_resource type="Resource" id="Resource_s8o11"]
+script = ExtResource("4_ahtqo")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_psl8s"]
+script = ExtResource("5_7kc2b")
+is_flagged = true
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("4_ahtqo")]([SubResource("Resource_s8o11")])
+
+[resource]
+script = ExtResource("1_qaln4")
+is_tutorial = false
+level_unlocked = true
+game_background = ExtResource("4_etgn8")
+game_foreground = ExtResource("5_nq84p")
+level_name = "Level 1"
+level_thumbnail = ExtResource("8_kgqbh")
+enemy_thumbnail = ExtResource("3_buof7")
+level_allies = Array[PackedScene]([ExtResource("5_sgboh")])
+starting_balance = 150
+coin_dropping_rate = SubResource("Resource_v82nr")
+falling_coin_value = 25
+playable_rows = 1
+game_background_position = "left"
+ally_presentation = SubResource("Resource_87ep0")
+displayed_preview_enemies = 5
+level_enemies = Array[ExtResource("5_7kc2b")]([SubResource("Resource_y76fq"), SubResource("Resource_yue4t"), SubResource("Resource_psl8s")])
+level_coins_reward = 150
+special_coin_reward = 0
+background_transitioning_level = false

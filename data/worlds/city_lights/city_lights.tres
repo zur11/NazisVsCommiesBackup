@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="World" load_steps=7 format=3 uid="uid://oceh7g7ftd64"]
+
+[ext_resource type="Texture2D" uid="uid://coe4u5ptq26ao" path="res://screens/sub_menus/games_menu/assets/city_lights_background.png" id="1_14eoj"]
+[ext_resource type="Script" path="res://data/worlds/world.gd" id="1_iwbvf"]
+[ext_resource type="Resource" uid="uid://dpgaigme7pghq" path="res://data/worlds/city_lights/level_1/level_1_ct.tres" id="2_egnw3"]
+[ext_resource type="Resource" uid="uid://ccbos2d8cqhuu" path="res://data/worlds/city_lights/level_2/level_2_ct.tres" id="3_7x71c"]
+[ext_resource type="Texture2D" uid="uid://bqj0hxrr6xxca" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/assets/budapest_unselected.png" id="4_plppn"]
+[ext_resource type="Texture2D" uid="uid://cqj8qd7ayemrt" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/assets/budapest.png" id="6_i8s0j"]
+
+[resource]
+script = ExtResource("1_iwbvf")
+world_name = "City Lights"
+games_menu_background = ExtResource("1_14eoj")
+normal_button_texture = ExtResource("4_plppn")
+selected_button_texture = ExtResource("6_i8s0j")
+levels = Array[Resource("res://data/worlds/level.gd")]([ExtResource("2_egnw3"), ExtResource("3_7x71c")])
+falling_coin_value = 0
+total_rows_number = 5

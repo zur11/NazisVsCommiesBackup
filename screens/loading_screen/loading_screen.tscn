@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4n41kmtybwqn"]
+
+[ext_resource type="Texture2D" uid="uid://8137uxmmbxxy" path="res://screens/loading_screen/assets/loading_screen_background.png" id="1_tg2x4"]
+[ext_resource type="Script" path="res://screens/loading_screen/loading_screen.gd" id="1_ti8cj"]
+[ext_resource type="PackedScene" uid="uid://ch80xmnv4dmtb" path="res://screens/loading_screen/loading_animation/loading_animation.tscn" id="2_6kal7"]
+[ext_resource type="Texture2D" uid="uid://cq2h1wsqyivir" path="res://screens/loading_screen/assets/logo_small.png" id="3_8dbqn"]
+[ext_resource type="Texture2D" uid="uid://dhpxw7j0tj03p" path="res://screens/loading_screen/assets/loading_label_small.png" id="3_jh5of"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ti8cj")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_tg2x4")
+
+[node name="LogoTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 10.0
+offset_right = 1426.0
+offset_bottom = 198.0
+texture = ExtResource("3_8dbqn")
+
+[node name="LoadingLabel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 779.0
+offset_right = 1089.0
+offset_bottom = 926.0
+texture = ExtResource("3_jh5of")
+
+[node name="LoadingAnimationsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 979.0
+offset_right = 1432.0
+offset_bottom = 979.0
+
+[node name="LoadingAnimation1" parent="LoadingAnimationsContainer" instance=ExtResource("2_6kal7")]
+
+[node name="LoadingAnimation2" parent="LoadingAnimationsContainer" instance=ExtResource("2_6kal7")]
+position = Vector2(215, 0)
+
+[node name="LoadingAnimation3" parent="LoadingAnimationsContainer" instance=ExtResource("2_6kal7")]
+position = Vector2(430, 0)
+
+[node name="LoadingAnimation4" parent="LoadingAnimationsContainer" instance=ExtResource("2_6kal7")]
+position = Vector2(645, 0)
+
+[node name="LoadingAnimation5" parent="LoadingAnimationsContainer" instance=ExtResource("2_6kal7")]
+position = Vector2(860, 0)

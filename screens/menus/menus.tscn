@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccdekj6qhy35t"]
+
+[ext_resource type="PackedScene" uid="uid://cflg2ypu25js2" path="res://screens/main_menu/main_menu.tscn" id="1_hxyeq"]
+[ext_resource type="Script" path="res://screens/menus/menus.gd" id="1_k132j"]
+[ext_resource type="Script" path="res://global_systems/scene_manager_system/scene_container/scene_container.gd" id="2_wxv64"]
+
+[node name="Menus" type="Node2D"]
+script = ExtResource("1_k132j")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_hxyeq")]
+
+[node name="SubMenuContainer" type="Node2D" parent="."]
+position = Vector2(1920, 0)
+script = ExtResource("2_wxv64")

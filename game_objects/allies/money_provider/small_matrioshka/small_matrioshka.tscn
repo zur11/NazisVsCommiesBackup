@@ -1,0 +1,357 @@
+[gd_scene load_steps=28 format=3 uid="uid://ciopcfjgq5ifn"]
+
+[ext_resource type="Texture2D" uid="uid://h7ahh3wb6l8c" path="res://assets/game_objects/soldier_shared_assets/circle_shadow.png" id="1_h2rfk"]
+[ext_resource type="Script" path="res://game_objects/allies/money_provider/small_matrioshka/small_matrioshka.gd" id="1_x5in0"]
+[ext_resource type="Texture2D" uid="uid://bgfdah7d1bbit" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_table.png" id="2_75hrx"]
+[ext_resource type="Script" path="res://data/min_max_int_rate/min_max_int_rate.gd" id="2_e0kds"]
+[ext_resource type="Texture2D" uid="uid://c238evo6klt12" path="res://game_objects/allies/money_provider/small_matrioshka/ally_card_assets/small_matrioshka.png" id="3_s3q8m"]
+[ext_resource type="Texture2D" uid="uid://c7myutdqydakx" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_light_bottom.png" id="3_xt8nv"]
+[ext_resource type="Texture2D" uid="uid://yt8qgc6afwva" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_bottom.png" id="4_8afsi"]
+[ext_resource type="Texture2D" uid="uid://dystdiy51tetl" path="res://game_objects/allies/money_provider/small_matrioshka/ally_card_assets/small_matrioshka_selected.png" id="4_ondpd"]
+[ext_resource type="Texture2D" uid="uid://moqbvuhpvqlb" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_blink_1.png" id="5_llwjc"]
+[ext_resource type="Texture2D" uid="uid://ds5et50q0rqta" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_blink_2.png" id="6_1qhlo"]
+[ext_resource type="Texture2D" uid="uid://otfy6kdsgjvf" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_light_top.png" id="7_djra1"]
+[ext_resource type="Texture2D" uid="uid://bmk4clgngclvp" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_top_dead.png" id="8_6rxoq"]
+[ext_resource type="Texture2D" uid="uid://dn237o7345anu" path="res://game_objects/allies/money_provider/small_matrioshka/assets/matrioska_top.png" id="8_iu2g0"]
+[ext_resource type="AudioStream" uid="uid://bmplbc8g3k1yu" path="res://assets/game_objects/soldier_shared_assets/sfx/hit.mp3" id="10_tu6mf"]
+[ext_resource type="AudioStream" uid="uid://bohox485ojx7d" path="res://game_objects/allies/money_provider/small_matrioshka/assets/sfx/matrioska_falling.mp3" id="11_4i6l5"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="11_t0suc"]
+
+[sub_resource type="Resource" id="Resource_2ea64"]
+script = ExtResource("2_e0kds")
+minimum_value = 15
+maximum_value = 20
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubwy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xt8nv")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8afsi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba0tp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_llwjc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_1qhlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_llwjc")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_djra1")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6rxoq")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_iu2g0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_vjrin"]
+resource_name = "_death"
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -28), Vector2(-50, -45), Vector2(-75, 20), Vector2(-75, 18), Vector2(-75, 20), Vector2(-75, 18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.39626]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bottom/Top:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"dead"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bottom/Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.523599]
+}
+
+[sub_resource type="Animation" id="Animation_f8lpb"]
+resource_name = "_give_coin"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.95), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bottom:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"charge", &"idle"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bottom/Top:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"blink", &"charge", &"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bottom/Top:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.4, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -50), Vector2(-3, -92), Vector2(-3, -92), Vector2(-2, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_5tjgj"]
+resource_name = "_idle"
+length = 4.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0523599, -0.0523599, 0.0523599, -0.0523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2.4, 3, 3.6, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1.03), Vector2(1, 0.98), Vector2(1, 1.03), Vector2(1, 0.98), Vector2(1, 1.03), Vector2(1, 0.98), Vector2(1, 1.03), Vector2(1, 0.98)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bottom/Top:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.5, 2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"blink", &"idle", &"blink", &"idle"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tx7n"]
+_data = {
+"_death": SubResource("Animation_vjrin"),
+"_give_coin": SubResource("Animation_f8lpb"),
+"_idle": SubResource("Animation_5tjgj")
+}
+
+[sub_resource type="Animation" id="Animation_d21m3"]
+resource_name = "_receive_damage_general"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.952941, 0.309804, 0.384314, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abi08"]
+_data = {
+"_receive_damage_general": SubResource("Animation_d21m3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14hl"]
+size = Vector2(101, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ryg"]
+size = Vector2(40, 26)
+
+[node name="SmallMatrioshka" type="CharacterBody2D"]
+modulate = Color(0.258824, 0.258824, 0.258824, 1)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_x5in0")
+coin_value = 15
+coin_dropping_rate = SubResource("Resource_2ea64")
+starting_hp = 10
+ally_name = "small_matrioshka"
+location_in_cell = Vector2(88, 88)
+ally_card_loading_time = 8
+normal_btn_texture = ExtResource("3_s3q8m")
+selected_btn_texture = ExtResource("4_ondpd")
+price = 25
+character_faction = "ally"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-2, 29)
+texture = ExtResource("1_h2rfk")
+
+[node name="Table" type="Sprite2D" parent="."]
+texture = ExtResource("2_75hrx")
+
+[node name="Bottom" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -28)
+rotation = 0.0523599
+scale = Vector2(1, 1.03)
+sprite_frames = SubResource("SpriteFrames_ubwy7")
+animation = &"idle"
+offset = Vector2(-3, -22)
+
+[node name="Top" type="AnimatedSprite2D" parent="Bottom"]
+position = Vector2(-2, -50)
+sprite_frames = SubResource("SpriteFrames_ba0tp")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(-1, -37)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "_idle"
+libraries = {
+"": SubResource("AnimationLibrary_1tx7n")
+}
+
+[node name="ReceiveDamage" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_abi08")
+}
+
+[node name="BodyCollShape" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -74)
+shape = SubResource("RectangleShape2D_k14hl")
+
+[node name="PhysicalContactCollShape" type="CollisionShape2D" parent="."]
+position = Vector2(68, -14)
+shape = SubResource("RectangleShape2D_v7ryg")
+
+[node name="ReceiveDamageSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tu6mf")
+script = ExtResource("11_t0suc")
+
+[node name="DeathSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4i6l5")
+script = ExtResource("11_t0suc")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

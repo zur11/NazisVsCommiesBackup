@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfouuid76jvkq"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/flag_vertical_slider.gd" id="1_uv1lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymjeb"]
+
+[node name="FlagVerticalSlider" type="VSlider"]
+custom_minimum_size = Vector2(50, 400)
+offset_right = 140.0
+offset_bottom = 548.0
+theme_override_styles/slider = SubResource("StyleBoxEmpty_ymjeb")
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_uv1lw")

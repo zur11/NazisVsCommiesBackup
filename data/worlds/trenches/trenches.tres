@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="World" load_steps=17 format=3 uid="uid://bck8dreransuu"]
+
+[ext_resource type="Script" path="res://data/worlds/world.gd" id="1_3dmbe"]
+[ext_resource type="Texture2D" uid="uid://diek5epm2qkcl" path="res://screens/sub_menus/games_menu/assets/trenches_background.png" id="1_54r4s"]
+[ext_resource type="Script" path="res://data/min_max_int_rate/min_max_int_rate.gd" id="1_uv2fe"]
+[ext_resource type="Resource" uid="uid://d10qjo0sdemd8" path="res://data/worlds/trenches/level_1/level_1_tr.tres" id="2_ojq3k"]
+[ext_resource type="Resource" uid="uid://bicfkv3i0xtok" path="res://data/worlds/trenches/level_2/level_2_tr.tres" id="3_oejaj"]
+[ext_resource type="Resource" uid="uid://mwfh5ulvg8yu" path="res://data/worlds/trenches/level_3/level_3_tr.tres" id="5_urmmr"]
+[ext_resource type="Resource" uid="uid://wtx1o6ql0esv" path="res://data/worlds/trenches/level_4/level_4_tr.tres" id="6_5nraf"]
+[ext_resource type="Resource" uid="uid://be1dvlepgewcs" path="res://data/worlds/trenches/level_5/level_5_tr.tres" id="7_e2ufy"]
+[ext_resource type="Resource" uid="uid://crii2amk0kxhs" path="res://data/worlds/trenches/level_6/level_6_tr.tres" id="9_7rpwh"]
+[ext_resource type="Resource" uid="uid://b4ar0u2peeft3" path="res://data/worlds/trenches/level_7/level_7_tr.tres" id="10_kulx6"]
+[ext_resource type="Resource" uid="uid://ewj6io0w281s" path="res://data/worlds/trenches/level_8/level_8_tr.tres" id="11_0j0p2"]
+[ext_resource type="Resource" uid="uid://bbxlu55ex45nk" path="res://data/worlds/trenches/level_9/level_9_tr.tres" id="12_a5ygc"]
+[ext_resource type="Resource" uid="uid://t0xg77jx2aae" path="res://data/worlds/trenches/level_10/level_10_tr.tres" id="13_1psea"]
+[ext_resource type="Texture2D" uid="uid://ba6mv4poxddkx" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/assets/stalingrad_winter_unselected.png" id="13_q67fk"]
+[ext_resource type="Texture2D" uid="uid://wgl6h0sgul2a" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/assets/stalingrad_winter.png" id="15_uxlh2"]
+
+[sub_resource type="Resource" id="Resource_mog0b"]
+script = ExtResource("1_uv2fe")
+minimum_value = 10
+maximum_value = 12
+
+[resource]
+script = ExtResource("1_3dmbe")
+world_name = "Trenches"
+games_menu_background = ExtResource("1_54r4s")
+normal_button_texture = ExtResource("13_q67fk")
+selected_button_texture = ExtResource("15_uxlh2")
+levels = Array[Resource("res://data/worlds/level.gd")]([ExtResource("2_ojq3k"), ExtResource("3_oejaj"), ExtResource("5_urmmr"), ExtResource("6_5nraf"), ExtResource("7_e2ufy"), ExtResource("9_7rpwh"), ExtResource("10_kulx6"), ExtResource("11_0j0p2"), ExtResource("12_a5ygc"), ExtResource("13_1psea")])
+coin_dropping_rate = SubResource("Resource_mog0b")
+falling_coin_value = 15
+total_rows_number = 5

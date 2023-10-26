@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp0u4mhdo0olf"]
+
+[ext_resource type="Script" path="res://screens/game_screen/enemies_preview_grid/preview_enemies_rows.gd" id="1_u66e8"]
+[ext_resource type="PackedScene" uid="uid://b6h2w80n5edt6" path="res://screens/game_screen/enemies_preview_grid/enemies_row/enemies_row.tscn" id="3_rxysa"]
+
+[node name="PreviewEnemiesRows" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 356.0
+offset_bottom = 896.0
+script = ExtResource("1_u66e8")
+
+[node name="EnemiesRow1" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 88.0
+offset_bottom = 88.0
+row_number = 1
+
+[node name="EnemiesRow2" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 176.0
+offset_bottom = 176.0
+row_number = 2
+
+[node name="EnemiesRow3" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 264.0
+offset_bottom = 264.0
+row_number = 3
+
+[node name="EnemiesRow4" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 352.0
+offset_bottom = 352.0
+row_number = 4
+
+[node name="EnemiesRow5" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 440.0
+offset_bottom = 440.0
+row_number = 5
+
+[node name="EnemiesRow6" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 528.0
+offset_bottom = 528.0
+row_number = 6
+
+[node name="EnemiesRow7" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 616.0
+offset_bottom = 616.0
+row_number = 7
+
+[node name="EnemiesRow8" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 703.0
+offset_bottom = 703.0
+row_number = 8
+
+[node name="EnemiesRow9" parent="." instance=ExtResource("3_rxysa")]
+layout_mode = 0
+offset_top = 792.0
+offset_bottom = 792.0
+row_number = 9

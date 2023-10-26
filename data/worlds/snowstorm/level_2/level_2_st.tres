@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="LevelSnowstorm" load_steps=28 format=3 uid="uid://b0eiif2wt0344"]
+
+[ext_resource type="Script" path="res://data/worlds/snowstorm/level_snowstorm.gd" id="1_d6o0f"]
+[ext_resource type="Script" path="res://data/ally_presentation/ally_presentation.gd" id="1_ns6n5"]
+[ext_resource type="Script" path="res://data/min_max_int_rate/min_max_int_rate.gd" id="2_jo7ef"]
+[ext_resource type="Texture2D" uid="uid://duw5flil1v7qy" path="res://data/worlds/snowstorm/level_2/enemy_thumbnail_standard.png" id="3_egqpw"]
+[ext_resource type="PackedScene" uid="uid://cgva8gvblu5qv" path="res://game_objects/allies/money_provider/matrioshka/matrioshka.tscn" id="4_f5r3k"]
+[ext_resource type="Texture2D" uid="uid://c43qfv0b5ofwa" path="res://data/worlds/snowstorm/level_2/tutorial_background_3rows.png" id="4_ky4bm"]
+[ext_resource type="PackedScene" uid="uid://cls10jllpda83" path="res://game_objects/allies/shooter_ally/bayonet_soldier/bayonet_soldier.tscn" id="5_l7sbv"]
+[ext_resource type="Texture2D" uid="uid://ccyyoqdxxsu26" path="res://data/worlds/snowstorm/salingrad_1_foreground.png" id="5_m1k6l"]
+[ext_resource type="Script" path="res://data/enemy_quantity/enemy_quantity.gd" id="8_gn8dv"]
+[ext_resource type="Texture2D" uid="uid://dmj4whxksfy2u" path="res://data/worlds/snowstorm/level_thumbnail.png" id="9_qdqs8"]
+[ext_resource type="Script" path="res://data/enemy_wave/enemy_wave.gd" id="9_s6c4v"]
+
+[sub_resource type="Resource" id="Resource_l63k1"]
+script = ExtResource("1_ns6n5")
+ally_thumbnail = "barrier"
+ally_title = "BARRIER"
+ally_reward_description = "Barrier offers protection from enemy attacks to allies located behind it. "
+
+[sub_resource type="Resource" id="Resource_v82nr"]
+script = ExtResource("2_jo7ef")
+minimum_value = 7
+maximum_value = 10
+
+[sub_resource type="Resource" id="Resource_fyour"]
+script = ExtResource("8_gn8dv")
+quantity = 3
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_xiiep"]
+script = ExtResource("9_s6c4v")
+is_flagged = false
+minimum_spawning_rate = 21.0
+maximum_spawning_rate = 38.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_fyour")])
+
+[sub_resource type="Resource" id="Resource_opoav"]
+script = ExtResource("8_gn8dv")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_qmv0q"]
+script = ExtResource("9_s6c4v")
+is_flagged = false
+minimum_spawning_rate = 20.0
+maximum_spawning_rate = 22.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_opoav")])
+
+[sub_resource type="Resource" id="Resource_251ju"]
+script = ExtResource("8_gn8dv")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_wa574"]
+script = ExtResource("9_s6c4v")
+is_flagged = true
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_251ju")])
+
+[sub_resource type="Resource" id="Resource_5ynj8"]
+script = ExtResource("8_gn8dv")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_yqw1p"]
+script = ExtResource("9_s6c4v")
+is_flagged = false
+minimum_spawning_rate = 20.0
+maximum_spawning_rate = 22.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_5ynj8")])
+
+[sub_resource type="Resource" id="Resource_742fr"]
+script = ExtResource("8_gn8dv")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_a6gw1"]
+script = ExtResource("9_s6c4v")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_742fr")])
+
+[sub_resource type="Resource" id="Resource_kdlpo"]
+script = ExtResource("8_gn8dv")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_rycnr"]
+script = ExtResource("9_s6c4v")
+is_flagged = false
+minimum_spawning_rate = 37.0
+maximum_spawning_rate = 38.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_kdlpo")])
+
+[sub_resource type="Resource" id="Resource_rgd18"]
+script = ExtResource("8_gn8dv")
+quantity = 3
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_yixnl"]
+script = ExtResource("9_s6c4v")
+is_flagged = true
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("8_gn8dv")]([SubResource("Resource_rgd18")])
+
+[resource]
+script = ExtResource("1_d6o0f")
+is_tutorial = false
+level_unlocked = true
+game_background = ExtResource("4_ky4bm")
+game_foreground = ExtResource("5_m1k6l")
+level_name = "Level 2"
+level_thumbnail = ExtResource("9_qdqs8")
+enemy_thumbnail = ExtResource("3_egqpw")
+level_allies = Array[PackedScene]([ExtResource("5_l7sbv"), ExtResource("4_f5r3k")])
+starting_balance = 50
+coin_dropping_rate = SubResource("Resource_v82nr")
+falling_coin_value = 25
+playable_rows = 3
+game_background_position = "left"
+ally_presentation = SubResource("Resource_l63k1")
+displayed_preview_enemies = 10
+level_enemies = Array[ExtResource("9_s6c4v")]([SubResource("Resource_xiiep"), SubResource("Resource_qmv0q"), SubResource("Resource_wa574"), SubResource("Resource_yqw1p"), SubResource("Resource_a6gw1"), SubResource("Resource_rycnr"), SubResource("Resource_yixnl")])
+level_coins_reward = 150
+special_coin_reward = 0
+background_transitioning_level = false

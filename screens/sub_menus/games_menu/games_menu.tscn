@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo1jforvfhnbv"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/games_menu.gd" id="1_0ear5"]
+[ext_resource type="Texture2D" uid="uid://m7wsmpycolq5" path="res://screens/sub_menus/games_menu/assets/snowstorm_background.png" id="2_4ebu2"]
+[ext_resource type="PackedScene" uid="uid://b1qaewqhhtlyv" path="res://screens/sub_menus/games_menu/world_selector/world_selector.tscn" id="3_aeiub"]
+[ext_resource type="Texture2D" uid="uid://cjgjnvdvgceab" path="res://assets/screens/shared_assets/go_back_2.png" id="3_l5hjq"]
+[ext_resource type="Texture2D" uid="uid://jwmwcyqtv2kh" path="res://assets/screens/shared_assets/go_back_1.png" id="4_u7ra3"]
+[ext_resource type="AudioStream" uid="uid://cc7rpmevwkpyo" path="res://assets/audio/sfx/buttons_sfx/click_2.mp3" id="6_tqb2a"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="7_dtfa6"]
+
+[node name="GamesMenu" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_0ear5")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_4ebu2")
+
+[node name="WorldSelector" parent="." instance=ExtResource("3_aeiub")]
+layout_mode = 1
+offset_left = 200.0
+offset_top = 576.0
+offset_right = -437.0
+offset_bottom = -42.0
+
+[node name="GoBackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 937.0
+offset_right = 185.0
+offset_bottom = 1053.0
+texture_normal = ExtResource("3_l5hjq")
+texture_pressed = ExtResource("4_u7ra3")
+texture_hover = ExtResource("4_u7ra3")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tqb2a")
+script = ExtResource("7_dtfa6")
+
+[connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]

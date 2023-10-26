@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs84ed7ckgfyd"]
+
+[ext_resource type="Script" path="res://screens/game_screen/ally_card_slots/ally_card_slots.gd" id="1_ngtc5"]
+
+[node name="AllyCardSlots" type="VBoxContainer"]
+script = ExtResource("1_ngtc5")

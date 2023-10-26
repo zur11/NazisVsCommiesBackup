@@ -1,0 +1,220 @@
+[gd_resource type="Resource" script_class="LevelSnowstorm" load_steps=44 format=3 uid="uid://csqajvfmn5nnw"]
+
+[ext_resource type="Script" path="res://data/worlds/snowstorm/level_snowstorm.gd" id="1_5ii0x"]
+[ext_resource type="Script" path="res://data/ally_presentation/ally_presentation.gd" id="1_oclej"]
+[ext_resource type="Texture2D" uid="uid://mrq5oudigikp" path="res://data/worlds/snowstorm/level_4/enemy_thumbnail_standard.png" id="1_qgv43"]
+[ext_resource type="Script" path="res://data/min_max_int_rate/min_max_int_rate.gd" id="2_nv07a"]
+[ext_resource type="Texture2D" uid="uid://d2iksg4jjnxdd" path="res://data/worlds/snowstorm/stalingrad_game_background.png" id="4_00q8u"]
+[ext_resource type="PackedScene" uid="uid://cgva8gvblu5qv" path="res://game_objects/allies/money_provider/matrioshka/matrioshka.tscn" id="4_a6ccw"]
+[ext_resource type="Texture2D" uid="uid://ccyyoqdxxsu26" path="res://data/worlds/snowstorm/salingrad_1_foreground.png" id="5_7e60a"]
+[ext_resource type="PackedScene" uid="uid://cls10jllpda83" path="res://game_objects/allies/shooter_ally/bayonet_soldier/bayonet_soldier.tscn" id="5_go163"]
+[ext_resource type="PackedScene" uid="uid://ps7ks7v7g60n" path="res://game_objects/allies/obstructer_ally/barrier/barrier.tscn" id="5_xj6i8"]
+[ext_resource type="Texture2D" uid="uid://dmj4whxksfy2u" path="res://data/worlds/snowstorm/level_thumbnail.png" id="6_f7iqk"]
+[ext_resource type="Script" path="res://data/enemy_quantity/enemy_quantity.gd" id="7_pqp7u"]
+[ext_resource type="Script" path="res://data/enemy_wave/enemy_wave.gd" id="8_4sr6r"]
+
+[sub_resource type="Resource" id="Resource_ya3yo"]
+script = ExtResource("1_oclej")
+ally_thumbnail = "landmine"
+ally_title = "LANDMINE"
+ally_reward_description = "Land Mine destroys first enemy that walks over it, vulnerable to enemies while charging."
+
+[sub_resource type="Resource" id="Resource_v82nr"]
+script = ExtResource("2_nv07a")
+minimum_value = 7
+maximum_value = 10
+
+[sub_resource type="Resource" id="Resource_nub2w"]
+script = ExtResource("7_pqp7u")
+quantity = 3
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_i77ox"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 23.0
+maximum_spawning_rate = 27.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_nub2w")])
+
+[sub_resource type="Resource" id="Resource_c5apf"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "handGunGerman"
+
+[sub_resource type="Resource" id="Resource_kqxrf"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 20.0
+maximum_spawning_rate = 22.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_c5apf")])
+
+[sub_resource type="Resource" id="Resource_h4b2l"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_ldxma"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_h4b2l")])
+
+[sub_resource type="Resource" id="Resource_jbgef"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_hfono"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 18.0
+maximum_spawning_rate = 20.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_jbgef")])
+
+[sub_resource type="Resource" id="Resource_4c1wc"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_ckscj"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_4c1wc")])
+
+[sub_resource type="Resource" id="Resource_d46pk"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "handGunGerman"
+
+[sub_resource type="Resource" id="Resource_j5acy"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 19.0
+maximum_spawning_rate = 21.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_d46pk")])
+
+[sub_resource type="Resource" id="Resource_ga6k7"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_36fxi"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 18.0
+maximum_spawning_rate = 20.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_ga6k7")])
+
+[sub_resource type="Resource" id="Resource_htox5"]
+script = ExtResource("7_pqp7u")
+quantity = 2
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_6ygju"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_htox5")])
+
+[sub_resource type="Resource" id="Resource_1e3c0"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "handGunGerman"
+
+[sub_resource type="Resource" id="Resource_j2rp1"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 14.0
+maximum_spawning_rate = 16.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_1e3c0")])
+
+[sub_resource type="Resource" id="Resource_noytl"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_v321w"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 2.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_noytl")])
+
+[sub_resource type="Resource" id="Resource_4ors3"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_s5o3n"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 14.0
+maximum_spawning_rate = 16.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_4ors3")])
+
+[sub_resource type="Resource" id="Resource_hgw4k"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "handGunGerman"
+
+[sub_resource type="Resource" id="Resource_61k2h"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 1.0
+maximum_spawning_rate = 3.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_hgw4k")])
+
+[sub_resource type="Resource" id="Resource_tsj85"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_7awvd"]
+script = ExtResource("8_4sr6r")
+is_flagged = false
+minimum_spawning_rate = 35.0
+maximum_spawning_rate = 37.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_tsj85")])
+
+[sub_resource type="Resource" id="Resource_43tug"]
+script = ExtResource("7_pqp7u")
+quantity = 7
+enemy = "standardGerman"
+
+[sub_resource type="Resource" id="Resource_ldv3o"]
+script = ExtResource("7_pqp7u")
+quantity = 1
+enemy = "handGunGerman"
+
+[sub_resource type="Resource" id="Resource_e4eo7"]
+script = ExtResource("8_4sr6r")
+is_flagged = true
+minimum_spawning_rate = 2.0
+maximum_spawning_rate = 5.0
+enemies = Array[ExtResource("7_pqp7u")]([SubResource("Resource_43tug"), SubResource("Resource_ldv3o")])
+
+[resource]
+script = ExtResource("1_5ii0x")
+is_tutorial = false
+level_unlocked = true
+game_background = ExtResource("4_00q8u")
+game_foreground = ExtResource("5_7e60a")
+level_name = "Level 4"
+level_thumbnail = ExtResource("6_f7iqk")
+enemy_thumbnail = ExtResource("1_qgv43")
+level_allies = Array[PackedScene]([ExtResource("5_go163"), ExtResource("4_a6ccw"), ExtResource("5_xj6i8")])
+starting_balance = 50
+coin_dropping_rate = SubResource("Resource_v82nr")
+falling_coin_value = 25
+playable_rows = 5
+game_background_position = "center"
+ally_presentation = SubResource("Resource_ya3yo")
+displayed_preview_enemies = 9
+level_enemies = Array[ExtResource("8_4sr6r")]([SubResource("Resource_i77ox"), SubResource("Resource_kqxrf"), SubResource("Resource_ldxma"), SubResource("Resource_hfono"), SubResource("Resource_ckscj"), SubResource("Resource_j5acy"), SubResource("Resource_36fxi"), SubResource("Resource_6ygju"), SubResource("Resource_j2rp1"), SubResource("Resource_v321w"), SubResource("Resource_s5o3n"), SubResource("Resource_61k2h"), SubResource("Resource_7awvd"), SubResource("Resource_e4eo7")])
+level_coins_reward = 150
+special_coin_reward = 0
+background_transitioning_level = false

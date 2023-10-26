@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmdvqfe78hy8d"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/level_selector/level_selector.gd" id="1_d2ekn"]
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/level_selector/scroll_card_container.gd" id="1_ybnch"]
+
+[node name="LevelSelector" type="Node2D"]
+script = ExtResource("1_d2ekn")
+
+[node name="ScrollCardContainer" type="ScrollContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 600.0
+follow_focus = true
+script = ExtResource("1_ybnch")
+
+[node name="CardsContainer" type="HBoxContainer" parent="ScrollCardContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 32
+
+[node name="CenterViewportPosition" type="ColorRect" parent="."]
+visible = false
+offset_left = 957.0
+offset_right = 963.0
+offset_bottom = 130.0
+color = Color(0, 0, 0, 1)

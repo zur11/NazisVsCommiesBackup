@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6h2w80n5edt6"]
+
+[ext_resource type="Script" path="res://screens/game_screen/enemies_preview_grid/enemies_row/enemies_row.gd" id="1_jbtoy"]
+
+[node name="EnemiesRow" type="HBoxContainer"]
+script = ExtResource("1_jbtoy")
+
+[node name="Column1" type="Marker2D" parent="."]
+position = Vector2(88, 0)
+
+[node name="Column2" type="Marker2D" parent="."]
+position = Vector2(176, 0)
+
+[node name="Column3" type="Marker2D" parent="."]
+position = Vector2(264, 0)

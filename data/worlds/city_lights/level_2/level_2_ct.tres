@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="LevelCityLights" load_steps=6 format=3 uid="uid://ccbos2d8cqhuu"]
+
+[ext_resource type="Texture2D" uid="uid://ba6sgef5ffyno" path="res://data/worlds/city_lights/game_background.png" id="1_2cbvw"]
+[ext_resource type="Texture2D" uid="uid://bimkwbk0mmvyk" path="res://data/worlds/city_lights/level_2/thumbnail.png" id="1_a2h30"]
+[ext_resource type="Script" path="res://data/ally_presentation/ally_presentation.gd" id="1_qwguk"]
+[ext_resource type="Script" path="res://data/worlds/city_lights/level_city_lights.gd" id="1_txq2m"]
+
+[sub_resource type="Resource" id="Resource_5o72n"]
+script = ExtResource("1_qwguk")
+ally_thumbnail = "shieldSoldier"
+ally_title = "SHIELD-SOLDIER"
+ally_reward_description = "Shield Soldier is protected by a low resistance shield. Occupies two horizontal cells."
+
+[resource]
+script = ExtResource("1_txq2m")
+is_tutorial = false
+level_unlocked = false
+game_background = ExtResource("1_2cbvw")
+level_name = "Level 2"
+level_thumbnail = ExtResource("1_a2h30")
+level_allies = Array[PackedScene]([])
+starting_balance = 0
+falling_coin_value = 0
+playable_rows = 0
+game_background_position = ""
+ally_presentation = SubResource("Resource_5o72n")
+displayed_preview_enemies = 0
+level_enemies = Array[Resource("res://data/enemy_wave/enemy_wave.gd")]([])
+level_coins_reward = 0
+special_coin_reward = 0
+background_transitioning_level = false

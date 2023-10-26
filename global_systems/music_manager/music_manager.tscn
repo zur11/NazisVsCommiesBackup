@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://seitan6w20in"]
+
+[ext_resource type="Script" path="res://global_systems/music_manager/music_manager.gd" id="1_niwur"]
+
+[node name="MusicManager" type="AudioStreamPlayer"]
+process_mode = 3
+bus = &"Music"
+script = ExtResource("1_niwur")

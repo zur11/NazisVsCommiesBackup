@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://qpbws2ipueiy"]
+
+[ext_resource type="Script" path="res://screens/game_screen/allies_selector_popup/choosable_ally_card/choosable_ally_card.gd" id="2_kyi50"]
+
+[node name="ChoosableAllyCard" type="TextureButton"]
+mouse_filter = 1
+script = ExtResource("2_kyi50")
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 94.0
+offset_right = 82.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 25

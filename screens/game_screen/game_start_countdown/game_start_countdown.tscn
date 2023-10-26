@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca3r71n17u75p"]
+
+[ext_resource type="Script" path="res://screens/game_screen/game_start_countdown/game_start_countdown.gd" id="1_e4c08"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="2_m1esx"]
+
+[node name="GameStartCountdown" type="Control"]
+layout_mode = 3
+anchor_right = 0.523
+anchor_bottom = 0.413
+offset_right = 0.839966
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_e4c08")
+
+[node name="CountDownTextureText" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_m1esx")

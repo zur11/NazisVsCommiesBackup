@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06t1h7dripxu"]
+
+[ext_resource type="Script" path="res://game_objects/components/bullet/ice_bullet/ice_bullet.gd" id="1_s5jva"]
+[ext_resource type="Texture2D" uid="uid://dhjajvs278elo" path="res://game_objects/components/bullet/ice_bullet/assets/ice_bullet.png" id="2_6ucgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycda2"]
+size = Vector2(18, 13)
+
+[node name="IceBullet" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_s5jva")
+
+[node name="BulletTexture" type="Sprite2D" parent="."]
+texture = ExtResource("2_6ucgo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 1.5)
+shape = SubResource("RectangleShape2D_ycda2")

@@ -1,0 +1,283 @@
+[gd_scene load_steps=33 format=3 uid="uid://0yp607cucppk"]
+
+[ext_resource type="Script" path="res://screens/game_screen/game_screen.gd" id="1_k0a87"]
+[ext_resource type="PackedScene" uid="uid://cvxpu3e3wl11t" path="res://screens/game_screen/terrain_grid/terrain_grid.tscn" id="2_3aeo5"]
+[ext_resource type="Resource" uid="uid://nw6qf1u8l4eq" path="res://data/worlds/snowstorm/level_10/level_10_st.tres" id="2_7udk3"]
+[ext_resource type="PackedScene" uid="uid://tqidibrgm2uf" path="res://screens/game_screen/ally_card_selector/ally_card_selector.tscn" id="3_bsn3m"]
+[ext_resource type="PackedScene" uid="uid://dud1ujrys61qg" path="res://screens/game_screen/balance_displayer/balance_displayer.tscn" id="5_15ded"]
+[ext_resource type="PackedScene" uid="uid://c8ja2opfaohj7" path="res://screens/game_screen/row_cannons/row_cannons.tscn" id="6_17so7"]
+[ext_resource type="Texture2D" uid="uid://ccyyoqdxxsu26" path="res://data/worlds/snowstorm/salingrad_1_foreground.png" id="7_2j2am"]
+[ext_resource type="PackedScene" uid="uid://bdob4r24ux2pr" path="res://screens/game_screen/enemy_spawners/enemy_spawners.tscn" id="7_c346h"]
+[ext_resource type="PackedScene" uid="uid://6xhrmrplu0ha" path="res://screens/game_screen/game_over_popup/game_over_popup.tscn" id="8_kvhr0"]
+[ext_resource type="PackedScene" uid="uid://dr75bqddrjto7" path="res://screens/game_screen/paused_game_popup/paused_game_popup.tscn" id="9_ttol0"]
+[ext_resource type="Texture2D" uid="uid://mc0dpakt0067" path="res://screens/game_screen/pause_button/assets/pause _button _unselected.png" id="10_1kv0b"]
+[ext_resource type="PackedScene" uid="uid://botdehl1hhwsv" path="res://screens/game_screen/remove_ally_button/remove_ally_button.tscn" id="10_hr7r8"]
+[ext_resource type="PackedScene" uid="uid://bfpngr2c5ibha" path="res://screens/game_screen/game_won_popup/game_won_popup.tscn" id="10_novf5"]
+[ext_resource type="Texture2D" uid="uid://fxqm4qkf3nf1" path="res://screens/game_screen/pause_button/assets/pause _button _selected.png" id="11_615ta"]
+[ext_resource type="PackedScene" uid="uid://belejvi2ji5n" path="res://screens/game_screen/game_progress_line/game_progress_line.tscn" id="11_v18fk"]
+[ext_resource type="PackedScene" uid="uid://df03qm0on10kk" path="res://screens/game_screen/last_column_enemy_detectors/last_column_enemy_detectors.tscn" id="15_2i4e3"]
+[ext_resource type="PackedScene" uid="uid://dhwskv3wddlt5" path="res://screens/game_screen/allies_selector_popup/allies_selector_popup.tscn" id="17_e0ioi"]
+[ext_resource type="PackedScene" uid="uid://ca3r71n17u75p" path="res://screens/game_screen/game_start_countdown/game_start_countdown.tscn" id="18_8ossk"]
+[ext_resource type="AudioStream" uid="uid://dj2tvrqbcwkgj" path="res://screens/game_screen/game_start_countdown/assets/sfx/countdown_sfx.mp3" id="19_cn58i"]
+[ext_resource type="Texture2D" uid="uid://bgb814h6cqan0" path="res://screens/game_screen/game_start_countdown/assets/3_seconds.png" id="19_i4u6j"]
+[ext_resource type="Texture2D" uid="uid://d354uv0j7en7e" path="res://screens/game_screen/game_start_countdown/assets/2_seconds.png" id="20_28ou3"]
+[ext_resource type="Texture2D" uid="uid://d4jclo167qrmg" path="res://screens/game_screen/game_start_countdown/assets/1_second.png" id="21_noct8"]
+[ext_resource type="Texture2D" uid="uid://butspkraxf2td" path="res://screens/game_screen/game_start_countdown/assets/defend_text.png" id="22_awsed"]
+[ext_resource type="PackedScene" uid="uid://dp0u4mhdo0olf" path="res://screens/game_screen/enemies_preview_grid/preview_enemies_rows.tscn" id="24_2cf1a"]
+[ext_resource type="AudioStream" uid="uid://by37pjvucyget" path="res://screens/game_screen/pause_button/assets/sfx/pause_popup_sfx.mp3" id="25_7brk2"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="26_vm4rp"]
+[ext_resource type="AudioStream" uid="uid://b5xat8iwvgaxg" path="res://screens/game_screen/balance_displayer/assets/sfx/pick_up_rublo.mp3" id="27_171tr"]
+[ext_resource type="AudioStream" uid="uid://un3g5rmsw8p0" path="res://assets/audio/sfx/ally_card_selector/select_ally_buy_card.mp3" id="28_cilvi"]
+[ext_resource type="AudioStream" uid="uid://dfysw3n5yx5fd" path="res://assets/audio/sfx/ally_card_selector/deploy_ally_in_grid.mp3" id="29_egyka"]
+[ext_resource type="AudioStream" uid="uid://bwp7ikyedhmvf" path="res://assets/audio/sfx/game_screen_events/enemies_arrived.mp3" id="30_qi2js"]
+[ext_resource type="PackedScene" uid="uid://ds50m5bk5qstt" path="res://global_objects/user_balance_displayer/user_balance_displayer.tscn" id="31_8h6yb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhyfe"]
+size = Vector2(20, 893)
+
+[node name="GameScreen" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0a87")
+level = ExtResource("2_7udk3")
+
+[node name="GameOverDetector" type="Area2D" parent="."]
+position = Vector2(0, 176)
+collision_layer = 682
+collision_mask = 682
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverDetector"]
+position = Vector2(0, 429)
+shape = SubResource("RectangleShape2D_uhyfe")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+offset_right = 6324.0
+offset_bottom = 1080.0
+
+[node name="EnemySpawners" parent="." instance=ExtResource("7_c346h")]
+z_as_relative = false
+layout_mode = 0
+offset_left = 2144.0
+offset_top = 248.0
+offset_right = 2144.0
+offset_bottom = 248.0
+
+[node name="LastColumnEnemyDetectors" parent="." instance=ExtResource("15_2i4e3")]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 265.0
+offset_right = 79.0
+offset_bottom = 265.0
+
+[node name="TerrainGrid" parent="." instance=ExtResource("2_3aeo5")]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 160.0
+offset_right = 1880.0
+offset_bottom = 1056.0
+
+[node name="Foreground" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.709804)
+top_level = true
+layout_mode = 0
+offset_top = 776.0
+offset_right = 6324.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("7_2j2am")
+
+[node name="RowCannons" parent="." instance=ExtResource("6_17so7")]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 190.0
+offset_right = 192.0
+offset_bottom = 190.0
+
+[node name="RowCannon1" parent="RowCannons" index="0"]
+collision_mask = 2
+
+[node name="RowCannon2" parent="RowCannons" index="1"]
+collision_mask = 8
+
+[node name="RowCannon3" parent="RowCannons" index="2"]
+collision_mask = 32
+
+[node name="RowCannon4" parent="RowCannons" index="3"]
+collision_mask = 128
+
+[node name="RowCannon5" parent="RowCannons" index="4"]
+collision_mask = 512
+
+[node name="BalanceDisplayer" parent="." instance=ExtResource("5_15ded")]
+layout_mode = 0
+offset_top = 0.0
+offset_bottom = 127.0
+
+[node name="CardSelector" parent="." instance=ExtResource("3_bsn3m")]
+visible = false
+layout_mode = 0
+offset_top = 155.0
+offset_bottom = 155.0
+
+[node name="RemainingEnemiesTitle" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 720.0
+offset_right = 222.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 27
+text = "Alive enemies remaining:"
+autowrap_mode = 3
+
+[node name="RemainingEnemiesCount" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 816.0
+offset_right = 164.0
+offset_bottom = 911.0
+theme_override_font_sizes/font_size = 67
+text = "10"
+
+[node name="PauseGameButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 565.0
+offset_right = 781.0
+offset_bottom = 82.0
+texture_normal = ExtResource("10_1kv0b")
+texture_pressed = ExtResource("11_615ta")
+texture_hover = ExtResource("11_615ta")
+texture_focused = ExtResource("11_615ta")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RemoveAllyButton" parent="." instance=ExtResource("10_hr7r8")]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 2.0
+offset_right = 475.0
+offset_bottom = 133.0
+
+[node name="GameProgressLine" parent="." instance=ExtResource("11_v18fk")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1121.0
+offset_top = 18.0
+offset_right = 1915.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameOverPopup" parent="." instance=ExtResource("8_kvhr0")]
+process_mode = 2
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 536.0
+offset_top = 207.0
+offset_right = 536.0
+offset_bottom = 207.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameWonPopup" parent="." instance=ExtResource("10_novf5")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 278.0
+offset_top = 36.0
+offset_right = 278.0
+offset_bottom = 36.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AlliesSelectorPopup" parent="." instance=ExtResource("17_e0ioi")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 565.0
+offset_right = 565.0
+offset_bottom = 0.0400009
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PausedGamePopup" parent="." instance=ExtResource("9_ttol0")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 455.0
+offset_top = 108.0
+offset_right = 455.0
+offset_bottom = 108.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameStartCountdown" parent="." instance=ExtResource("18_8ossk")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.84
+offset_bottom = 540.0
+grow_horizontal = 1
+grow_vertical = 1
+count_down_audio = ExtResource("19_cn58i")
+total_count_down_time = 2.0
+countdown_numbers = Array[Texture]([ExtResource("19_i4u6j"), ExtResource("20_28ou3"), ExtResource("21_noct8")])
+starting_prompt = ExtResource("22_awsed")
+
+[node name="PreviewEnemiesRows" parent="." instance=ExtResource("24_2cf1a")]
+offset_left = 2060.0
+offset_top = 160.0
+offset_right = 2416.0
+offset_bottom = 1056.0
+
+[node name="PauseBtnPressedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_7brk2")
+script = ExtResource("26_vm4rp")
+
+[node name="CoinPickedUpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_171tr")
+script = ExtResource("26_vm4rp")
+
+[node name="AllyCardSelectedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_cilvi")
+script = ExtResource("26_vm4rp")
+
+[node name="NewAllyLocatedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_egyka")
+script = ExtResource("26_vm4rp")
+
+[node name="EnemiesArrivedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_qi2js")
+script = ExtResource("26_vm4rp")
+
+[node name="UserBalanceDisplayer" parent="." instance=ExtResource("31_8h6yb")]
+position = Vector2(1565, -111)
+
+[connection signal="body_entered" from="GameOverDetector" to="." method="_on_game_over_detector_body_entered"]
+[connection signal="pressed" from="PauseGameButton" to="." method="_on_pause_game_button_pressed"]
+[connection signal="pressed" from="RemoveAllyButton" to="." method="_on_remove_ally_button_pressed"]
+
+[editable path="EnemySpawners"]
+[editable path="RowCannons"]

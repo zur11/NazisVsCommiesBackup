@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qaewqhhtlyv"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/world_selector/world_selector.gd" id="1_omxmu"]
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/world_button.gd" id="2_7jc32"]
+
+[node name="WorldSelector" type="Control"]
+layout_mode = 3
+anchor_right = 0.704
+anchor_bottom = 0.393
+offset_right = 0.319946
+offset_bottom = -0.440002
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omxmu")
+
+[node name="World1Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 359.0
+offset_bottom = 414.0
+script = ExtResource("2_7jc32")
+
+[node name="World2Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_right = 826.0
+offset_bottom = 414.0
+script = ExtResource("2_7jc32")
+
+[node name="World3Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 963.0
+offset_top = -35.0
+offset_right = 1347.0
+offset_bottom = 415.0
+stretch_mode = 4
+script = ExtResource("2_7jc32")

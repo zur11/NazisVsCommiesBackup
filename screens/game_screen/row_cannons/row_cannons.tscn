@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ja2opfaohj7"]
+
+[ext_resource type="Script" path="res://screens/game_screen/row_cannons/row_cannons.gd" id="1_gc3oc"]
+[ext_resource type="PackedScene" uid="uid://b7iygktoqf3th" path="res://screens/game_screen/row_cannons/row_cannon/row_cannon.tscn" id="2_ua8t6"]
+
+[node name="RowCannons" type="VBoxContainer"]
+theme_override_constants/separation = 176
+script = ExtResource("1_gc3oc")
+
+[node name="RowCannon1" parent="." instance=ExtResource("2_ua8t6")]
+
+[node name="RowCannon2" parent="." instance=ExtResource("2_ua8t6")]
+position = Vector2(0, 176)
+
+[node name="RowCannon3" parent="." instance=ExtResource("2_ua8t6")]
+position = Vector2(0, 352)
+
+[node name="RowCannon4" parent="." instance=ExtResource("2_ua8t6")]
+position = Vector2(0, 528)
+
+[node name="RowCannon5" parent="." instance=ExtResource("2_ua8t6")]
+position = Vector2(0, 704)

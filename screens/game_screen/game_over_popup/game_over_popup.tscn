@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://6xhrmrplu0ha"]
+
+[ext_resource type="Script" path="res://screens/game_screen/game_over_popup/game_over_popup.gd" id="1_pivp5"]
+[ext_resource type="Texture2D" uid="uid://dim4ogihxnj50" path="res://screens/game_screen/game_over_popup/assets/game_over_popup.png" id="2_pcg4e"]
+[ext_resource type="Texture2D" uid="uid://bsjmy2yya2ryy" path="res://screens/game_screen/game_over_popup/assets/main_menu_button.png" id="3_qlh0f"]
+[ext_resource type="Texture2D" uid="uid://d3fj387i24na8" path="res://screens/game_screen/game_over_popup/assets/main_menu_button_selected.png" id="4_sextl"]
+[ext_resource type="Texture2D" uid="uid://b47lfpew8i1rp" path="res://screens/game_screen/game_over_popup/assets/play_again_button.png" id="5_05ffk"]
+[ext_resource type="Texture2D" uid="uid://c7ye1gbc2wy78" path="res://screens/game_screen/game_over_popup/assets/play_again_button_selected.png" id="6_rhp35"]
+[ext_resource type="AudioStream" uid="uid://djx2vlmr8oegg" path="res://assets/audio/sfx/game_screen_popups/generic_button_pressed_sfx.mp3" id="7_3y2ti"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="8_3ipbs"]
+
+[node name="GameOverPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -857.0
+offset_bottom = -275.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pivp5")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pcg4e")
+
+[node name="GoToMainMenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 456.0
+offset_right = 449.0
+offset_bottom = 571.0
+texture_normal = ExtResource("3_qlh0f")
+texture_pressed = ExtResource("4_sextl")
+
+[node name="PlayAgainButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 453.0
+offset_right = 958.0
+offset_bottom = 569.0
+texture_normal = ExtResource("5_05ffk")
+texture_pressed = ExtResource("6_rhp35")
+
+[node name="GenericBtnPressedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3y2ti")
+script = ExtResource("8_3ipbs")
+
+[connection signal="pressed" from="GoToMainMenuButton" to="." method="_on_go_to_main_menu_button_pressed"]
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]

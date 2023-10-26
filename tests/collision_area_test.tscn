@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://de4be40gsbn3l"]
+
+[ext_resource type="Script" path="res://tests/collision_area_test.gd" id="1_5fvi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svc0g"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcntj"]
+size = Vector2(50, 50)
+
+[node name="CollisionAreaTest" type="Node2D"]
+script = ExtResource("1_5fvi8")
+
+[node name="BlastArea" type="Area2D" parent="."]
+position = Vector2(920, 456)
+collision_layer = 0
+
+[node name="BlastCollisionShape" type="CollisionShape2D" parent="BlastArea"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_svc0g")
+
+[node name="CharacterBody1" type="CharacterBody2D" parent="."]
+position = Vector2(766, 459)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody1"]
+shape = SubResource("RectangleShape2D_gcntj")
+
+[node name="CharacterBody2" type="CharacterBody2D" parent="."]
+position = Vector2(917, 290)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2"]
+shape = SubResource("RectangleShape2D_gcntj")
+
+[connection signal="body_shape_entered" from="BlastArea" to="." method="_on_blast_area_body_shape_entered"]

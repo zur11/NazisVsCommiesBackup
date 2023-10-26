@@ -1,0 +1,259 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7iygktoqf3th"]
+
+[ext_resource type="Texture2D" uid="uid://427pqr2memx5" path="res://screens/game_screen/row_cannons/row_cannon/assets/basebottom.png" id="1_6wf37"]
+[ext_resource type="Script" path="res://screens/game_screen/row_cannons/row_cannon/row_cannon.gd" id="1_8xn1t"]
+[ext_resource type="Texture2D" uid="uid://b50xvkwe31ttu" path="res://screens/game_screen/row_cannons/row_cannon/assets/base_pipe.png" id="2_6l0fd"]
+[ext_resource type="Texture2D" uid="uid://b0iag63alnokn" path="res://screens/game_screen/row_cannons/row_cannon/assets/middle_pipe.png" id="3_a1ke3"]
+[ext_resource type="Texture2D" uid="uid://b7mvuu33dgcl0" path="res://screens/game_screen/row_cannons/row_cannon/assets/top_pipe.png" id="4_e1vhk"]
+[ext_resource type="Texture2D" uid="uid://nw13v7fixxtw" path="res://screens/game_screen/row_cannons/row_cannon/assets/circle_particle.png" id="5_eqatj"]
+[ext_resource type="Texture2D" uid="uid://yet7rp3hbocb" path="res://screens/game_screen/row_cannons/row_cannon/assets/top_metal_piece.png" id="6_c1cxa"]
+[ext_resource type="Texture2D" uid="uid://bi8exuo8f0kdn" path="res://screens/game_screen/row_cannons/row_cannon/assets/base_top.png" id="7_vudpt"]
+[ext_resource type="AudioStream" uid="uid://crdf3s4bv8urr" path="res://screens/game_screen/row_cannons/row_cannon/sfx/cannon_shooting.mp3" id="9_tjgek"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="10_5y5iu"]
+
+[sub_resource type="Curve" id="Curve_tsxu7"]
+max_value = 0.6
+_data = [Vector2(0, 0.215658), 0.0, 0.0, 0, 0, Vector2(0.292593, 0.6), 0.334749, 0.334749, 0, 0, Vector2(1, 0), -1.44907, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_7tfci"]
+colors = PackedColorArray(1, 0.984314, 0.462745, 1, 1, 1, 1, 0.607843)
+
+[sub_resource type="Animation" id="Animation_7ar1g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhysicalContactCollShape:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.28381]
+}
+
+[sub_resource type="Animation" id="1"]
+resource_name = "_shoot"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseBottom/BasePipe:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 0.7, 0.8, 1.2, 1.25, 1.45, 1.8, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-70.9967, -72.2822, 0.0, 1.32651, 0.0, 0.0, -2.18818, 0.0, 0.0, -65.7507]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseBottom/BasePipe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 12), Vector2(3, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BaseBottom/BasePipe/MiddlePipe/TopPipe:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2, 1.25, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(64, 0), Vector2(64, 0), Vector2(94, 0), Vector2(89, 0), Vector2(94, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseBottom/BasePipe/MiddlePipe:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(74, -1), Vector2(74, -1), Vector2(99, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BaseBottom/BasePipe/TopMetal:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(78, -13), Vector2(78, -13), Vector2(96, -13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BaseBottom:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.1, 1.25, 1.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.1, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BaseBottom/BasePipe/MiddlePipe/TopPipe/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PhysicalContactCollShape:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.8, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.28381, 0.0144616, 0.0144616, -1.28456]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsphb"]
+_data = {
+"RESET": SubResource("Animation_7ar1g"),
+"_shoot": SubResource("1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byqp8"]
+size = Vector2(246.855, 64.5732)
+
+[node name="RowCannon" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_8xn1t")
+starting_bullet_position = Vector2(276, 5)
+character_faction = "ally"
+
+[node name="Shadow" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.34902)
+position = Vector2(-47, 80)
+scale = Vector2(0.974906, 0.466539)
+color = Color(0, 0, 0, 1)
+offset = Vector2(-301.368, 108.899)
+polygon = PackedVector2Array(239.823, -123.903, 228.54, -108.899, 222.386, -93.8946, 218.283, -78.8906, 220.334, -61.743, 225.463, -53.1691, 233.669, -44.5954, 242.901, -38.1651, 251.107, -36.0217, 272.647, -31.7347, 310.6, -33.8782, 334.192, -36.0217, 351.629, -40.3085, 363.938, -48.8823, 375.221, -61.743, 381.376, -74.6036, 385.479, -91.7512, 384.453, -106.755, 380.35, -121.278, 374.195, -130.333, 364.964, -136.763, 338.295, -143.194, 300.342, -143.194, 261.364, -134.62, 250.081, -130.333)
+
+[node name="BaseBottom" type="Sprite2D" parent="."]
+texture = ExtResource("1_6wf37")
+
+[node name="BasePipe" type="Sprite2D" parent="BaseBottom"]
+z_index = 4
+position = Vector2(-13, 12)
+rotation = -1.23913
+texture = ExtResource("2_6l0fd")
+offset = Vector2(44, 2)
+
+[node name="MiddlePipe" type="Sprite2D" parent="BaseBottom/BasePipe"]
+z_index = 3
+z_as_relative = false
+position = Vector2(74, -1)
+texture = ExtResource("3_a1ke3")
+
+[node name="TopPipe" type="Sprite2D" parent="BaseBottom/BasePipe/MiddlePipe"]
+z_index = 2
+z_as_relative = false
+position = Vector2(64, 0)
+texture = ExtResource("4_e1vhk")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BaseBottom/BasePipe/MiddlePipe/TopPipe"]
+position = Vector2(76.4044, 0.138073)
+emitting = false
+amount = 20
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.68
+randomness = 0.34
+texture = ExtResource("5_eqatj")
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 29.04
+gravity = Vector2(0, 200)
+initial_velocity_min = 580.64
+initial_velocity_max = 580.64
+scale_amount_curve = SubResource("Curve_tsxu7")
+color_ramp = SubResource("Gradient_7tfci")
+
+[node name="TopMetal" type="Sprite2D" parent="BaseBottom/BasePipe"]
+z_index = 4
+z_as_relative = false
+position = Vector2(78, -13)
+texture = ExtResource("6_c1cxa")
+
+[node name="BaseTop" type="Sprite2D" parent="BaseBottom"]
+z_index = 5
+position = Vector2(-76, 8)
+texture = ExtResource("7_vudpt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wsphb")
+}
+
+[node name="PhysicalContactCollShape" type="CollisionShape2D" parent="."]
+position = Vector2(18.7768, -79.3712)
+rotation = -1.28381
+shape = SubResource("RectangleShape2D_byqp8")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_tjgek")
+script = ExtResource("10_5y5iu")
+
+[node name="ShootSoundTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DisappearTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ShootSoundTimer" to="." method="_on_shoot_sound_timer_timeout"]
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

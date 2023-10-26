@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dodwtpi0j43v0"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/games_menu/world_selector/world_buttons/world_button.gd" id="1_gj6jq"]
+
+[node name="WorldButton" type="TextureButton"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_gj6jq")

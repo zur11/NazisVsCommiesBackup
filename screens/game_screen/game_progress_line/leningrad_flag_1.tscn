@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b244d4f7jeq8e"]
+
+[ext_resource type="Texture2D" uid="uid://bd2hoh1p2thp6" path="res://screens/game_screen/game_progress_line/assets/base_flag.png" id="1_gv14u"]
+
+[node name="LeningradFlag1" type="TextureRect"]
+offset_right = 60.0
+offset_bottom = 69.0
+texture = ExtResource("1_gv14u")
+expand_mode = 1

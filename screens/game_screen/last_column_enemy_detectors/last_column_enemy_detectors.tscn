@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://df03qm0on10kk"]
+
+[ext_resource type="Script" path="res://screens/game_screen/last_column_enemy_detectors/last_column_enemy_detectors.gd" id="1_1mh6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s18dn"]
+size = Vector2(20, 352)
+
+[node name="LastColumnEnemyDetectors" type="VBoxContainer"]
+script = ExtResource("1_1mh6p")
+
+[node name="RowEnemyDetector1" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RowEnemyDetector1"]
+position = Vector2(0, -178)
+shape = SubResource("RectangleShape2D_s18dn")
+
+[node name="RowEnemyDetector2" type="Area2D" parent="."]
+position = Vector2(0, 176)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RowEnemyDetector2"]
+position = Vector2(0, -178)
+shape = SubResource("RectangleShape2D_s18dn")
+
+[node name="RowEnemyDetector3" type="Area2D" parent="."]
+position = Vector2(0, 352)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RowEnemyDetector3"]
+position = Vector2(0, -178)
+shape = SubResource("RectangleShape2D_s18dn")
+
+[node name="RowEnemyDetector4" type="Area2D" parent="."]
+position = Vector2(0, 528)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RowEnemyDetector4"]
+position = Vector2(0, -176)
+shape = SubResource("RectangleShape2D_s18dn")
+
+[node name="RowEnemyDetector5" type="Area2D" parent="."]
+position = Vector2(0, 704)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RowEnemyDetector5"]
+position = Vector2(0, -176)
+shape = SubResource("RectangleShape2D_s18dn")

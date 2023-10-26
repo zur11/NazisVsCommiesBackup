@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btep2mwq5l8n0"]
+
+[node name="ChoosableCardsGrid" type="GridContainer"]
+theme_override_constants/h_separation = 57
+theme_override_constants/v_separation = 31
+columns = 4

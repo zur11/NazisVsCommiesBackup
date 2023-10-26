@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://87lecky2hhq6"]
+
+[ext_resource type="Script" path="res://screens/sub_menus/settings_menu/settings_menu.gd" id="1_ek6l5"]
+[ext_resource type="Texture2D" uid="uid://baj3lloqlxev0" path="res://screens/sub_menus/settings_menu/assets/settings_menu_bg.png" id="2_6g4gv"]
+[ext_resource type="Theme" uid="uid://dbejo3347i6pe" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/music_on.tres" id="2_6x5j8"]
+[ext_resource type="Texture2D" uid="uid://cjgjnvdvgceab" path="res://assets/screens/shared_assets/go_back_2.png" id="3_g3soe"]
+[ext_resource type="Theme" uid="uid://bl6c3kuy8x7iq" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/music_off.tres" id="3_hyhun"]
+[ext_resource type="Texture2D" uid="uid://jwmwcyqtv2kh" path="res://assets/screens/shared_assets/go_back_1.png" id="4_40cua"]
+[ext_resource type="Theme" uid="uid://cwxmbxn37m06" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/sfx_on.tres" id="4_u4w6f"]
+[ext_resource type="Texture2D" uid="uid://ckeh3i5xuaoqs" path="res://screens/sub_menus/settings_menu/assets/flag_stick.png" id="5_ivy1x"]
+[ext_resource type="Theme" uid="uid://qpd6rkhjjnwn" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/sfx_off.tres" id="5_pjwlp"]
+[ext_resource type="AudioStream" uid="uid://cr2skxn5wpmxx" path="res://assets/audio/sfx/buttons_sfx/flag_drop.mp3" id="8_n5gu7"]
+[ext_resource type="PackedScene" uid="uid://bfouuid76jvkq" path="res://screens/sub_menus/settings_menu/flag_vertical_slider/flag_vertical_slider.tscn" id="9_pojic"]
+[ext_resource type="AudioStream" uid="uid://cc7rpmevwkpyo" path="res://assets/audio/sfx/buttons_sfx/click_2.mp3" id="9_vl6b0"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="10_f1nsj"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ek6l5")
+music_on_vslider_theme = ExtResource("2_6x5j8")
+music_off_vslider_theme = ExtResource("3_hyhun")
+sfx_on_vslider_theme = ExtResource("4_u4w6f")
+sfx_off_vslider_theme = ExtResource("5_pjwlp")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6g4gv")
+
+[node name="MusicFlagStaff" type="Sprite2D" parent="."]
+position = Vector2(934, 548)
+texture = ExtResource("5_ivy1x")
+
+[node name="SfxFlagStaff" type="Sprite2D" parent="."]
+position = Vector2(1257, 545)
+texture = ExtResource("5_ivy1x")
+
+[node name="GoBackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 34.0
+offset_right = 178.0
+offset_bottom = 150.0
+texture_normal = ExtResource("3_g3soe")
+texture_pressed = ExtResource("4_40cua")
+texture_hover = ExtResource("4_40cua")
+
+[node name="GoBackBtnSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vl6b0")
+bus = &"SFX"
+script = ExtResource("10_f1nsj")
+
+[node name="SFXVolumeSelectionPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_n5gu7")
+bus = &"SFX"
+script = ExtResource("10_f1nsj")
+
+[node name="MusicVerticalSlider" parent="." instance=ExtResource("9_pojic")]
+layout_mode = 0
+offset_left = 943.0
+offset_top = 246.0
+offset_right = 1083.0
+offset_bottom = 794.0
+bus_name = "Music"
+
+[node name="SFXVerticalSlider" parent="." instance=ExtResource("9_pojic")]
+layout_mode = 0
+offset_left = 1265.0
+offset_top = 246.0
+offset_right = 1405.0
+offset_bottom = 794.0
+bus_name = "SFX"
+
+[connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="drag_ended" from="SFXVerticalSlider" to="." method="_on_sfx_vertical_slider_drag_ended"]

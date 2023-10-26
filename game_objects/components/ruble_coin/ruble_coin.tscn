@@ -1,0 +1,170 @@
+[gd_scene load_steps=27 format=3 uid="uid://cnqqga8hbxxjn"]
+
+[ext_resource type="Script" path="res://game_objects/components/ruble_coin/ruble_coin.gd" id="1_b3trd"]
+[ext_resource type="Texture2D" uid="uid://b1ckdv8qbyrb4" path="res://game_objects/components/ruble_coin/assets/rublo_halo.png" id="2_tdw4k"]
+[ext_resource type="Texture2D" uid="uid://dxfbh461rjqjp" path="res://game_objects/components/ruble_coin/assets/rublo1.png" id="3_g1fj8"]
+[ext_resource type="Texture2D" uid="uid://j463ta7vnduv" path="res://game_objects/components/ruble_coin/assets/rublo2.png" id="4_3bhx1"]
+[ext_resource type="Texture2D" uid="uid://d0hxr4eyqghom" path="res://game_objects/components/ruble_coin/assets/rublo3.png" id="5_us2wb"]
+[ext_resource type="Texture2D" uid="uid://bg88vc014bhlj" path="res://game_objects/components/ruble_coin/assets/rublo4.png" id="6_tb2vw"]
+[ext_resource type="Texture2D" uid="uid://dy3wfy2hcv400" path="res://game_objects/components/ruble_coin/assets/rublo5.png" id="7_6g6ia"]
+[ext_resource type="Texture2D" uid="uid://crkmkdd2ah0fw" path="res://game_objects/components/ruble_coin/assets/rublo6.png" id="8_lihry"]
+[ext_resource type="Texture2D" uid="uid://cx7otp78r8q6q" path="res://game_objects/components/ruble_coin/assets/rublo7.png" id="9_ovq0h"]
+[ext_resource type="Texture2D" uid="uid://dpnyk0iqp5ktp" path="res://game_objects/components/ruble_coin/assets/rublo8.png" id="10_ybgdu"]
+[ext_resource type="Texture2D" uid="uid://6lyv4r7ewlln" path="res://game_objects/components/ruble_coin/assets/rublo9.png" id="11_fgqry"]
+[ext_resource type="Texture2D" uid="uid://cklypi2oh2tr3" path="res://game_objects/components/ruble_coin/assets/rublo10.png" id="12_rw75e"]
+[ext_resource type="Texture2D" uid="uid://cxx5ouit1lgot" path="res://game_objects/components/ruble_coin/assets/rublo11.png" id="13_kwlkm"]
+[ext_resource type="Texture2D" uid="uid://c80wv1fmd1cp4" path="res://game_objects/components/ruble_coin/assets/rublo12.png" id="14_bgu6h"]
+[ext_resource type="Texture2D" uid="uid://bsa0havskk7qu" path="res://game_objects/components/ruble_coin/assets/rublo13.png" id="15_f5cd8"]
+[ext_resource type="Texture2D" uid="uid://bbtgiusf8x2xb" path="res://game_objects/components/ruble_coin/assets/rublo14.png" id="16_t3404"]
+[ext_resource type="Texture2D" uid="uid://ddrut7rm4027t" path="res://game_objects/components/ruble_coin/assets/rublo15.png" id="17_tpl6c"]
+[ext_resource type="Texture2D" uid="uid://mf8k0j4cabi3" path="res://game_objects/components/ruble_coin/assets/rublo16.png" id="18_rlr7d"]
+[ext_resource type="Texture2D" uid="uid://bsg0d77rvpv77" path="res://game_objects/components/ruble_coin/assets/rublo17.png" id="19_sibvr"]
+[ext_resource type="Texture2D" uid="uid://4t7fsvfpn8tg" path="res://game_objects/components/ruble_coin/assets/rublo18.png" id="20_eih5t"]
+[ext_resource type="Texture2D" uid="uid://covobr0k8n5v" path="res://game_objects/components/ruble_coin/assets/rublo19.png" id="21_1bqch"]
+[ext_resource type="Texture2D" uid="uid://bfodnitqu02hp" path="res://game_objects/components/ruble_coin/assets/rublo20.png" id="22_w2spg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u8fa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g1fj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3bhx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_us2wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tb2vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6g6ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lihry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ovq0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ybgdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fgqry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rw75e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kwlkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bgu6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_f5cd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t3404")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tpl6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_rlr7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_sibvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_eih5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1bqch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_w2spg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g1fj8")
+}],
+"loop": false,
+"name": &"coin_flipping",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_410k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qtsj8"]
+resource_name = "halo_rotating_anim"
+length = 8.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xctjw"]
+_data = {
+"RESET": SubResource("Animation_410k6"),
+"halo_rotating_anim": SubResource("Animation_qtsj8")
+}
+
+[node name="RubleCoin" type="TextureButton"]
+custom_minimum_size = Vector2(82, 83)
+offset_left = -41.0
+offset_top = -41.0
+offset_right = 41.0
+offset_bottom = 42.0
+script = ExtResource("1_b3trd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(41, 41)
+texture = ExtResource("2_tdw4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(41, 41)
+sprite_frames = SubResource("SpriteFrames_3u8fa")
+animation = &"coin_flipping"
+autoplay = "coin_flipping"
+frame = 20
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "halo_rotating_anim"
+libraries = {
+"": SubResource("AnimationLibrary_xctjw")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

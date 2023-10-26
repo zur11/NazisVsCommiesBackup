@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bl6c3kuy8x7iq"]
+
+[ext_resource type="Texture2D" uid="uid://daw60qik1xtw0" path="res://screens/sub_menus/settings_menu/assets/music_flag_muted.png" id="1_844dp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjgph"]
+
+[resource]
+VSlider/icons/grabber = ExtResource("1_844dp")
+VSlider/icons/grabber_highlight = ExtResource("1_844dp")
+VSlider/styles/slider = SubResource("StyleBoxEmpty_gjgph")

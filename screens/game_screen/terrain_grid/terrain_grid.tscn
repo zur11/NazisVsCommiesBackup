@@ -1,0 +1,146 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvxpu3e3wl11t"]
+
+[ext_resource type="Script" path="res://screens/game_screen/terrain_grid/terrain_grid.gd" id="1_o70ua"]
+[ext_resource type="PackedScene" uid="uid://lne27su22q6r" path="res://screens/game_screen/terrain_grid/cell/cell.tscn" id="2_lhhgb"]
+
+[node name="TerrainGrid" type="GridContainer"]
+custom_minimum_size = Vector2(1616, 890)
+offset_right = 1616.0
+offset_bottom = 896.0
+columns = 9
+script = ExtResource("1_o70ua")
+
+[node name="Row1Col1" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col2" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col3" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col4" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col5" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col6" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col7" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col8" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row1Col9" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col1" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col2" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col3" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col4" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col5" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col6" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col7" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col8" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row2Col9" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col1" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col2" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col3" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col4" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col5" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col6" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col7" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col8" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row3Col9" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col1" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col2" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col3" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col4" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col5" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col6" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col7" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col8" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row4Col9" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col1" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col2" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col3" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col4" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col5" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col6" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col7" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col8" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2
+
+[node name="Row5Col9" parent="." instance=ExtResource("2_lhhgb")]
+layout_mode = 2

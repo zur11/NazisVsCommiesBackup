@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://botdehl1hhwsv"]
+
+[ext_resource type="Script" path="res://screens/game_screen/remove_ally_button/remove_ally_button.gd" id="3_vno3l"]
+
+[node name="RemoveAllyButton" type="TextureButton"]
+offset_right = 125.0
+offset_bottom = 131.0
+script = ExtResource("3_vno3l")

@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cwxmbxn37m06"]
+
+[ext_resource type="Texture2D" uid="uid://bejbohf5y5gy7" path="res://screens/sub_menus/settings_menu/assets/sfx_flag_2.png" id="1_0bwq6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qs6e"]
+
+[resource]
+VSlider/icons/grabber = ExtResource("1_0bwq6")
+VSlider/icons/grabber_highlight = ExtResource("1_0bwq6")
+VSlider/styles/slider = SubResource("StyleBoxEmpty_4qs6e")

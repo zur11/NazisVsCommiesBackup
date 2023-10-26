@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdob4r24ux2pr"]
+
+[ext_resource type="Script" path="res://screens/game_screen/enemy_spawners/enemy_spawners.gd" id="1_37731"]
+
+[node name="EnemySpawners" type="VBoxContainer"]
+script = ExtResource("1_37731")
+
+[node name="EnemySpawner1" type="Marker2D" parent="."]
+
+[node name="EnemySpawner2" type="Marker2D" parent="."]
+position = Vector2(0, 176)
+
+[node name="EnemySpawner3" type="Marker2D" parent="."]
+position = Vector2(0, 352)
+
+[node name="EnemySpawner4" type="Marker2D" parent="."]
+position = Vector2(0, 528)
+
+[node name="EnemySpawner5" type="Marker2D" parent="."]
+position = Vector2(0, 704)
+
+[node name="EnemySpawningTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="EnemySpawningTimer" to="." method="_on_enemy_spawning_timer_timeout"]

@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ctlcvavxgle7d"]
+
+[ext_resource type="Texture2D" uid="uid://nuhf8a52kcee" path="res://screens/game_screen/allies_selector_popup/assets/slidebar_handler.png" id="1_ioqub"]
+[ext_resource type="Texture2D" uid="uid://i8jwu62g14c0" path="res://screens/game_screen/allies_selector_popup/assets/slidebar.png" id="2_27nxg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtwlf"]
+texture = ExtResource("1_ioqub")
+expand_margin_left = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chdpk"]
+texture = ExtResource("1_ioqub")
+expand_margin_left = 40.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8ka6"]
+texture = ExtResource("1_ioqub")
+expand_margin_left = 40.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7xmk"]
+texture = ExtResource("2_27nxg")
+expand_margin_left = 45.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obwqe"]
+texture = ExtResource("2_27nxg")
+expand_margin_left = 45.0
+
+[resource]
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_vtwlf")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_chdpk")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_r8ka6")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_j7xmk")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_obwqe")

@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr75bqddrjto7"]
+
+[ext_resource type="Script" path="res://screens/game_screen/paused_game_popup/paused_game_popup.gd" id="1_omj55"]
+[ext_resource type="Texture2D" uid="uid://jd0ff83xmfq7" path="res://screens/game_screen/paused_game_popup/assets/pause_popup_bg.PNG" id="2_iihcw"]
+[ext_resource type="Texture2D" uid="uid://dnnnyc6lgax4r" path="res://screens/game_screen/paused_game_popup/assets/slider_background.PNG" id="3_gbjcu"]
+[ext_resource type="Texture2D" uid="uid://o8lh4ibwga0l" path="res://screens/game_screen/paused_game_popup/assets/resume_button_1.png" id="3_xk0mj"]
+[ext_resource type="PackedScene" uid="uid://bnw6e40cvuxp1" path="res://screens/game_screen/paused_game_popup/volume_horizontal_slider/volume_horizontal_slider.tscn" id="4_s32kb"]
+[ext_resource type="Texture2D" uid="uid://cjjdben0b1u1j" path="res://screens/game_screen/paused_game_popup/assets/resume_button_2.png" id="4_w5hwk"]
+[ext_resource type="Texture2D" uid="uid://cluee0i7vbmap" path="res://screens/game_screen/paused_game_popup/assets/retry_button_1.png" id="5_opa6a"]
+[ext_resource type="Texture2D" uid="uid://d1ntuxd6nqqmq" path="res://screens/game_screen/paused_game_popup/assets/retry_button_2.png" id="6_3etcl"]
+[ext_resource type="Texture2D" uid="uid://imlptc6ith4b" path="res://screens/game_screen/paused_game_popup/assets/main_menu_button_1.png" id="7_0u3vh"]
+[ext_resource type="Texture2D" uid="uid://buh7v6gv6475" path="res://screens/game_screen/paused_game_popup/assets/main_menu_button_2.png" id="8_4ooyn"]
+[ext_resource type="AudioStream" uid="uid://drbi120c2cato" path="res://screens/game_screen/paused_game_popup/assets/sfx/set_sfx_volume.mp3" id="11_ax76g"]
+[ext_resource type="Script" path="res://global_objects/audio_players/sfx_player.gd" id="12_2bon3"]
+[ext_resource type="AudioStream" uid="uid://djx2vlmr8oegg" path="res://assets/audio/sfx/game_screen_popups/generic_button_pressed_sfx.mp3" id="13_ubs4o"]
+
+[node name="PausedGamePopup" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -776.0
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omj55")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1143.0
+offset_bottom = 850.0
+texture = ExtResource("2_iihcw")
+
+[node name="MusicSliderBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 298.0
+offset_right = 918.0
+offset_bottom = 365.0
+texture = ExtResource("3_gbjcu")
+
+[node name="MusicHorizontalSlider" parent="MusicSliderBackground" instance=ExtResource("4_s32kb")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(490, 26)
+layout_mode = 0
+offset_left = 46.0
+offset_top = -7.0
+offset_right = 529.0
+offset_bottom = 79.0
+bus_name = "Music"
+
+[node name="SFXSliderBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 386.0
+offset_right = 918.0
+offset_bottom = 453.0
+texture = ExtResource("3_gbjcu")
+
+[node name="SFXHorizontalSlider" parent="SFXSliderBackground" instance=ExtResource("4_s32kb")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(490, 26)
+layout_mode = 0
+offset_left = 46.0
+offset_top = -7.0
+offset_right = 536.0
+offset_bottom = 79.0
+bus_name = "SFX"
+
+[node name="ResumeGameButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 524.0
+offset_right = 426.0
+offset_bottom = 737.0
+texture_normal = ExtResource("3_xk0mj")
+texture_pressed = ExtResource("4_w5hwk")
+
+[node name="RetryLevelButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 524.0
+offset_right = 675.0
+offset_bottom = 736.0
+texture_normal = ExtResource("5_opa6a")
+texture_pressed = ExtResource("6_3etcl")
+
+[node name="GoToMainMenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 524.0
+offset_right = 926.0
+offset_bottom = 736.0
+texture_normal = ExtResource("7_0u3vh")
+texture_pressed = ExtResource("8_4ooyn")
+
+[node name="SFXVolumeSelectionPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ax76g")
+script = ExtResource("12_2bon3")
+
+[node name="GenericBtnPressedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ubs4o")
+script = ExtResource("12_2bon3")
+
+[connection signal="drag_ended" from="SFXSliderBackground/SFXHorizontalSlider" to="." method="_on_sfx_horizontal_slider_drag_ended"]
+[connection signal="pressed" from="ResumeGameButton" to="." method="_on_resume_game_button_pressed"]
+[connection signal="pressed" from="RetryLevelButton" to="." method="_on_retry_level_button_pressed"]
+[connection signal="pressed" from="GoToMainMenuButton" to="." method="_on_go_to_main_menu_button_pressed"]

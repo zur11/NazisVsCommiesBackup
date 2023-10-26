@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://brxq4nw6qqsqj"]
+
+[ext_resource type="Script" path="res://screens/game_screen/allies_selector_popup/allies_selector_scroll_container/allies_selector_scroll_container.gd" id="1_5qkpd"]
+[ext_resource type="PackedScene" uid="uid://btep2mwq5l8n0" path="res://screens/game_screen/allies_selector_popup/choosable_cards_grid/choosable_cards_grid.tscn" id="1_clfsu"]
+[ext_resource type="Script" path="res://screens/game_screen/allies_selector_popup/choosable_cards_grid/choosable_cards_grid.gd" id="3_2bc26"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ti7i"]
+
+[node name="AlliesSelectorScrollContainer" type="ScrollContainer"]
+offset_left = 200.0
+offset_top = 214.0
+offset_right = 1244.0
+offset_bottom = 914.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ti7i")
+script = ExtResource("1_5qkpd")
+
+[node name="ScrollVContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VerticalSpacer" type="Control" parent="ScrollVContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollVContainer"]
+layout_mode = 2
+
+[node name="HorizontalSpacer" type="Control" parent="ScrollVContainer/HBoxContainer"]
+custom_minimum_size = Vector2(101, 0)
+layout_mode = 2
+
+[node name="ChoosableCardsGrid" parent="ScrollVContainer/HBoxContainer" instance=ExtResource("1_clfsu")]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 2
+script = ExtResource("3_2bc26")
+
+[node name="HorizontalSpacer2" type="Control" parent="ScrollVContainer/HBoxContainer"]
+custom_minimum_size = Vector2(137, 0)
+layout_mode = 2
+
+[node name="VerticalSpacer2" type="Control" parent="ScrollVContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[editable path="ScrollVContainer/HBoxContainer/ChoosableCardsGrid"]
